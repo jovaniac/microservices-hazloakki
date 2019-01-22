@@ -18,9 +18,10 @@ CREATE TABLE negocio (
   responsable varchar(45) DEFAULT NULL,
   id_cuenta varchar(255) DEFAULT NULL,
   id_accion NUMERIC,
-  sitio_web varchar(255) DEFAULT NULL
+  sitio_web varchar(255) DEFAULT NULL,
+  calificacion double precision DEFAULT NULL,
+  rango_precio double precision DEFAULT NULL
 );
-
 
 CREATE TABLE cat_metodo_pago (
  id VARCHAR(255) PRIMARY KEY,

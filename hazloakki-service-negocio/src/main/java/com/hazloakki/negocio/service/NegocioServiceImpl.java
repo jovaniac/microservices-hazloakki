@@ -180,7 +180,8 @@ public class NegocioServiceImpl implements NegocioService {
 
 	@Override
 	public List<NegocioDto> obtenerNegociosByAccion(Integer idAccion) {
-
+		log.info(">>>Lista de negocios asociados por accion");
+		
 		List<NegocioDto> listNegocios = negocioRepository.obtenerNegociosByIdAccionAndEstatus(idAccion, Boolean.TRUE);
 
 		if (listNegocios.isEmpty()) {
@@ -237,11 +238,11 @@ public class NegocioServiceImpl implements NegocioService {
 	}
 
 	@Override
-	public List<NegocioDto> obtenerNegociosByNearby(double latitudActual, double longitudActual, double radio,
+	public List<NegocioDto> obtenerNegociosByNearby(String idAccion, double latitudActual, double longitudActual, double radio,
 			String estatusNegocio) {
 
 		List<NegocioDto> negocioCercanos = negocioRepository.findAllNegociosByNearbyAndEstatusAndHorario(latitudActual,
-				longitudActual, radio, Boolean.TRUE);
+				longitudActual, idAccion,radio, Boolean.TRUE);
 
 		List<NegocioDto> negocioCercanosYAbiertos = new ArrayList<>();
 

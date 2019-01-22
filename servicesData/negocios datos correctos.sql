@@ -1,0 +1,30 @@
+INSERT INTO public.negocio
+(id_negocio, nombre, id_categoria, email, descripcion, telefono, domicilio, latitud, longitud, estatus, codigo_postal, delegacion, colonia, calle, numero_exterior, horario, responsable, id_cuenta, id_accion, sitio_web)
+VALUES('377543fd-cb9d-4b66-8ed5-3b7a445e7d14', 'Hooters', 1, 'hooters@gmail.com', 'Las mejores alitas de méxico', '23456', 'Avenida Insurgentes Sur, Del Valle Centro', 19.3891063, -99.1737469, true, '03100', 'Benito Juárez', 'Benito Juárez', 'Avenida Insurgentes Sur', '5', NULL, NULL, 'df98c2e5-ff6c-4c11-95c0-2d8e77cad3a5', 1, 'www.hooters.io');
+INSERT INTO public.negocio
+(id_negocio, nombre, id_categoria, email, descripcion, telefono, domicilio, latitud, longitud, estatus, codigo_postal, delegacion, colonia, calle, numero_exterior, horario, responsable, id_cuenta, id_accion, sitio_web)
+VALUES('df62419f-8643-4db0-9f2d-735eb74f8a8f', 'Casa Jovani AC', 1, 'casajovaniac@gmail.com', 'Casa de Jovani Arzate', '6789', 'Azaleas, Temixco, Morelos, 62050, Mexico', 18.8551584, -99.2421597, true, '62050', 'Temixco', 'Temixco', 'Azaleas, Temixco, Morelos', '3', NULL, NULL, 'df98c2e5-ff6c-4c11-95c0-2d8e77cad3a5', 1, 'www.casajovaniac.io');
+INSERT INTO public.negocio
+(id_negocio, nombre, id_categoria, email, descripcion, telefono, domicilio, latitud, longitud, estatus, codigo_postal, delegacion, colonia, calle, numero_exterior, horario, responsable, id_cuenta, id_accion, sitio_web)
+VALUES('e786a930-ab30-48e9-b003-d6470a8b0432', 'Quick Learning', 1, 'casajovaniac@gmail.com', 'Clases de Ingles', '56998765', 'Calle Barranca del Muerto, Álvaro Obregón', 19.3628068, -99.1889707, true, '03930', 'Álvaro Obregón', 'Álvaro Obregón', 'Calle Barranca del Muerto', '1', NULL, NULL, 'df98c2e5-ff6c-4c11-95c0-2d8e77cad3a5', 1, 'www.QuickLearning.io');
+INSERT INTO public.negocio
+(id_negocio, nombre, id_categoria, email, descripcion, telefono, domicilio, latitud, longitud, estatus, codigo_postal, delegacion, colonia, calle, numero_exterior, horario, responsable, id_cuenta, id_accion, sitio_web)
+VALUES('928a3cf9-2545-487a-ab7d-950157283859', 'Banco Azteca', 1, 'BancoAzteca@gmail.com', 'Clases de Ingles', '987654', 'Banco Azteca, Avenida Insurgentes Sur', 19.4211021, -99.1635579, true, '06700', 'Roma Norte', 'Roma Norte', ' Avenida Insurgentes Sur, Roma Norte', '1', NULL, NULL, 'df98c2e5-ff6c-4c11-95c0-2d8e77cad3a5', 1, 'www.BancoAzteca.io');
+INSERT INTO public.negocio
+(id_negocio, nombre, id_categoria, email, descripcion, telefono, domicilio, latitud, longitud, estatus, codigo_postal, delegacion, colonia, calle, numero_exterior, horario, responsable, id_cuenta, id_accion, sitio_web)
+VALUES('fe2c8b8e-9b1d-4764-83c3-7a0f1fd6685a', 'GrupoSalinas', 1, 'GrupoSalinas@gmail.com', 'Multiples empresas financieras y retail', '85634433', 'Av de los Insurgentes Sur 3579, La Joya', 19.2451835, -99.1967865, true, '14000', 'La Joya', 'La Joya', 'Av de los Insurgentes Sur 3579', '178', NULL, NULL, 'df98c2e5-ff6c-4c11-95c0-2d8e77cad3a5', 1, 'www.GrupoSalinas.io');
+INSERT INTO public.negocio
+(id_negocio, nombre, id_categoria, email, descripcion, telefono, domicilio, latitud, longitud, estatus, codigo_postal, delegacion, colonia, calle, numero_exterior, horario, responsable, id_cuenta, id_accion, sitio_web)
+VALUES('44e7852c-2492-4497-9579-2fa97372b18b', 'KidZania Cuicuilco', 1, 'KidZania@gmail.com', 'JUegos para niños', '965351', 'Insurgentes Sur 3500, Manantial Peña Pobre', 19.2971894, -99.1830258, true, '3500', 'Manantial Peña Pobre', 'Manantial Peña Pobre', 'Insurgentes Sur 3500', '64', NULL, NULL, 'df98c2e5-ff6c-4c11-95c0-2d8e77cad3a5', 1, 'www.KidZania.io');
+INSERT INTO public.negocio
+(id_negocio, nombre, id_categoria, email, descripcion, telefono, domicilio, latitud, longitud, estatus, codigo_postal, delegacion, colonia, calle, numero_exterior, horario, responsable, id_cuenta, id_accion, sitio_web)
+VALUES('f734b6da-e863-481b-a253-349f295345ec', 'Google México', 1, 'GoogleMéxico@gmail.com', 'Google México Servicios profesionales', '555342 8400', 'Calle Montes Urales 445, Lomas - Virreyes', 19.4282471, -99.2087254, true, '445', 'Lomas - Virreyes', 'Lomas - Virreyes', 'Calle Montes Urales 445', '976', NULL, NULL, 'df98c2e5-ff6c-4c11-95c0-2d8e77cad3a5', 1, 'www.GoogleMéxico.io');
+INSERT INTO public.negocio
+(id_negocio, nombre, id_categoria, email, descripcion, telefono, domicilio, latitud, longitud, estatus, codigo_postal, delegacion, colonia, calle, numero_exterior, horario, responsable, id_cuenta, id_accion, sitio_web)
+VALUES('2246d319-0781-4972-884e-d6fdd0d0c2f9', 'El Churro Feliz, Avenida Aztecas', 1, 'ElChurroFeliz@gmail.com', 'Los mejores churroz de huayamilpas', '5553425069', 'El Churro Feliz, Avenida Aztecas, Los Reyes', 19.3324969, -99.154918, true, '04330', 'Los Reyes', 'Los Reyes', 'Avenida Aztecas 04330', '474', NULL, NULL, 'df98c2e5-ff6c-4c11-95c0-2d8e77cad3a5', 1, 'www.ElChurroFeliz.io');
+INSERT INTO public.negocio
+(id_negocio, nombre, id_categoria, email, descripcion, telefono, domicilio, latitud, longitud, estatus, codigo_postal, delegacion, colonia, calle, numero_exterior, horario, responsable, id_cuenta, id_accion, sitio_web)
+VALUES('d424839d-a6ba-42a9-a6a4-d687865424b5', 'Pasadena Hotel & Villas', 1, 'PasadenaHotelVillas@gmail.com', 'Este hotel elegante solo para adultos', '55 5598 0022', 'Avenida Revolución, San Juan', 19.377815, -99.1893867, true, '03730', 'San Juan', 'San Juan', 'Avenida Revolución 03730', '865', NULL, NULL, 'df98c2e5-ff6c-4c11-95c0-2d8e77cad3a5', 1, 'www.PasadenaHotelVillas.io');
+INSERT INTO public.negocio
+(id_negocio, nombre, id_categoria, email, descripcion, telefono, domicilio, latitud, longitud, estatus, codigo_postal, delegacion, colonia, calle, numero_exterior, horario, responsable, id_cuenta, id_accion, sitio_web)
+VALUES('b6f7ebb2-1163-430d-b301-9f954abcff77', 'Hotel Kron Sur', 1, 'HotelKron@gmail.com', 'Este hotel elegante solo para adultos', '01 55 5606 4838', 'Hotel Kron, Insurgentes Sur, Tlalpan Centro I', 19.2925203, -99.1790719, true, '14000', 'Tlalpan Centro', 'Tlalpan Centro', 'Insurgentes Sur 14000', '754', NULL, NULL, 'df98c2e5-ff6c-4c11-95c0-2d8e77cad3a5', 1, 'www.HotelKron.io');

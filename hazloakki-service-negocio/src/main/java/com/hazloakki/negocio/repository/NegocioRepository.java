@@ -20,5 +20,5 @@ public interface NegocioRepository {
 	void eliminarByIdNegocio(String idNegocio);
 	List<NegocioDto> obtenerNegociosByIdAccionAndEstatus(Integer idAccion, boolean estatus);
 	List<NegocioDto> findAllNegociosByEstatus(boolean estatus);
-	List<NegocioDto> findAllNegociosByNearbyAndEstatusAndHorario(double latitudActual, double longitudActual,double radio, boolean estatus);
+	List<NegocioDto> findAllNegociosByNearbyAndEstatusAndHorario(double latitudActual, double longitudActual,String idAccion,double radio, boolean estatus);
 }

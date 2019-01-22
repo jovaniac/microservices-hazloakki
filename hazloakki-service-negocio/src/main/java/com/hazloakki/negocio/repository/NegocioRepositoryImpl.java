@@ -28,18 +28,16 @@ public class NegocioRepositoryImpl extends SpringJdbcDao implements NegocioRepos
 	private String qrySelectNegociosByAccionAndEstatus = "SELECT * FROM negocio WHERE ID_ACCION=? AND ESTATUS = ?";
 	private String qryAllNegocios = "SELECT * FROM negocio WHERE ESTATUS = ?";
 	
-	private String qryNegociosCercanos="select a.*,b.distancia from " + 
-			"	(SELECT * FROM negocio a) as a, " + 
-			"	(SELECT b.id_negocio,(6371 * acos( cos( radians(?) ) * " + 
-			"		cos( radians( latitud ) ) * " + 
-			"		cos( radians( longitud ) - " + 
-			"		radians(?) ) + " + 
-			"		sin( radians(?) ) * " + 
-			"		sin( radians( latitud ) ))) / 10 as distancia " + 
-			"	from negocio b) as b "+ 
-			"where a.id_negocio = b.id_negocio " + 
-			" and a.ESTATUS = ? "+  
-			"and distancia < ? " + 
+	
+	private String qryNegociosCercanos="select a.*,b.distancia from 	\n" + 
+			"(SELECT * FROM negocio a) as a, 	\n" + 
+			"(SELECT b.id_negocio,(6371 * acos( cos( radians(?) ) * cos( radians( latitud ) ) * 		\n" + 
+			"cos( radians( longitud ) - 		radians(?) ) + 		sin( radians(?) ) * 		\n" + 
+			"sin( radians( latitud ) ))) / 10 as distancia 	from negocio b) as b \n" + 
+			"where a.id_negocio = b.id_negocio  \n" + 
+			"and a.ESTATUS = ?   \n" + 
+			"and a.ID_ACCION = ? \n" + 
+			"and b.distancia < ? \n" + 
 			"order by b.distancia asc ";
 	
 	@Override
@@ -105,10 +103,9 @@ public class NegocioRepositoryImpl extends SpringJdbcDao implements NegocioRepos
 
 	@Override
 	public List<NegocioDto> findAllNegociosByNearbyAndEstatusAndHorario(double latitudActual, double longitudActual,
-			 double radio, boolean estatus) {
+			String idAccion, double radio, boolean estatus) {
 		
-		 return jdbcTemplate.query(qryNegociosCercanos, new Object[] { latitudActual,longitudActual,latitudActual,estatus,radio},
+		 return jdbcTemplate.query(qryNegociosCercanos, new Object[] {latitudActual,longitudActual,latitudActual,estatus,Integer.parseInt(idAccion),radio},
 				BeanPropertyRowMapper.newInstance(NegocioDto.class));
 	}
-
 }

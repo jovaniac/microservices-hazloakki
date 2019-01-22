@@ -82,9 +82,12 @@ public class NegocioController {
 	/*
 	 * App HazloAkki
 	 */
-	@GetMapping("acciones/{id}")
-	public List<NegocioDto> obtenerNegociosPorAccion(@PathVariable("id") String idAccion){
-		return negocioService.obtenerNegociosByAccion(Integer.parseInt(idAccion));
+	@GetMapping("acciones/{id}/{latitud}/{longitud}/{distancia}/{estatus}")
+	public List<NegocioDto> obtenerNegociosPorAccionByNearby(@PathVariable("id") String idAccion,@PathVariable("latitud") String latitud,
+			@PathVariable("longitud") String longitud, @PathVariable("distancia") String radio,
+			@PathVariable("estatus") String estatusNegocio){
+		return negocioService.obtenerNegociosByNearby(idAccion,Double.parseDouble(latitud), Double.parseDouble(longitud),
+				Double.parseDouble(radio),estatusNegocio);
 	}
 	
 
@@ -93,8 +96,7 @@ public class NegocioController {
 			@PathVariable("longitud") String longitud, @PathVariable("distancia") String radio,
 			@PathVariable("estatus") String estatusNegocio) {
 		
-		return negocioService.obtenerNegociosByNearby(Double.parseDouble(latitud), Double.parseDouble(longitud),
-				Double.parseDouble(radio),estatusNegocio);
+		return null;
 	}
 	
 	/*
