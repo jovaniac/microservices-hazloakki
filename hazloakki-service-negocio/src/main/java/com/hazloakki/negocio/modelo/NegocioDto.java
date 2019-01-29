@@ -25,7 +25,6 @@ public class NegocioDto {
 	private String calle;
 	private String numeroExterior;
 	private boolean estatus;
-	private String horario;
 	private String responsable;
 	private List<ServiciosDto> serviciosList = new ArrayList<>();
 	private List<MetodoPagoDto> metodoPagoList = new ArrayList<>();
@@ -37,6 +36,7 @@ public class NegocioDto {
 	private String calificacion;
 	private Integer numeroOfertas;
 	private String ultimoComentario;
+	private String nombreCategoria;
 
 	public String getIdNegocio() {
 		return idNegocio;
@@ -166,14 +166,6 @@ public class NegocioDto {
 		this.estatus = estatus;
 	}
 
-	public String getHorario() {
-		return horario;
-	}
-
-	public void setHorario(String horario) {
-		this.horario = horario;
-	}
-
 	public String getResponsable() {
 		return responsable;
 	}
@@ -261,7 +253,13 @@ public class NegocioDto {
 	public void setUltimoComentario(String ultimoComentario) {
 		this.ultimoComentario = ultimoComentario;
 	}
-	
-	
+
+	public String getNombreCategoria() {
+		return nombreCategoria;
+	}
+
+	public void setNombreCategoria(String nombreCategoria) {
+		this.nombreCategoria = nombreCategoria;
+	}
 
 }

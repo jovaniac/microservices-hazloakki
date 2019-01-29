@@ -23,6 +23,7 @@ public interface NegocioService {
 
 	void borrarNegocio(String idNegocio);
 	List<NegocioDto> obtenerNegociosByNearby(String idAccion,double latitudActual, double longitudActual,double radio,String estatusNegocio);
+	List<NegocioDto> obtenerNegociosByNearby2(String idAccion,double latitudActual, double longitudActual,double radio,String estatusNegocio);
 	
 
 	/*

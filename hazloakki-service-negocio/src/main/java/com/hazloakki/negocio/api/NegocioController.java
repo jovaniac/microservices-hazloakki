@@ -86,7 +86,7 @@ public class NegocioController {
 	public List<NegocioDto> obtenerNegociosPorAccionByNearby(@PathVariable("id") String idAccion,@PathVariable("latitud") String latitud,
 			@PathVariable("longitud") String longitud, @PathVariable("distancia") String radio,
 			@PathVariable("estatus") String estatusNegocio){
-		return negocioService.obtenerNegociosByNearby(idAccion,Double.parseDouble(latitud), Double.parseDouble(longitud),
+		return negocioService.obtenerNegociosByNearby2(idAccion,Double.parseDouble(latitud), Double.parseDouble(longitud),
 				Double.parseDouble(radio),estatusNegocio);
 	}
 	

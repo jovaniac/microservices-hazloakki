@@ -3,9 +3,9 @@ package com.hazloakki.negocio.modelo;
 public class HorarioNegocioDto {
 
 	private Integer idDia;
-	private String dia;
 	private String horarioInicial;
 	private String horarioFinal;
+	private String nombre;
 
 	public Integer getIdDia() {
 		return idDia;
@@ -31,12 +31,14 @@ public class HorarioNegocioDto {
 		this.horarioFinal = horarioFinal;
 	}
 
-	public String getDia() {
-		return dia;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setDia(String dia) {
-		this.dia = dia;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
+	
+	
 
 }

@@ -241,10 +241,11 @@ public class NegocioServiceImpl implements NegocioService {
 	public List<NegocioDto> obtenerNegociosByNearby(String idAccion, double latitudActual, double longitudActual, double radio,
 			String estatusNegocio) {
 
-		List<NegocioDto> negocioCercanos = negocioRepository.findAllNegociosByNearbyAndEstatusAndHorario(latitudActual,
+		List<NegocioDto> negocioCercanos = negocioRepository.findAllNegociosByNearbyAndEstatus(latitudActual,
 				longitudActual, idAccion,radio, Boolean.TRUE);
 
 		List<NegocioDto> negocioCercanosYAbiertos = new ArrayList<>();
+	 List<HorarioNegocioDto> horariosNegocio = new ArrayList<>();
 
 		if (negocioCercanos.isEmpty()) {
 			throw new NegocioException("No se encontro ningun negocio registrado", "0");
@@ -262,13 +263,77 @@ public class NegocioServiceImpl implements NegocioService {
 				if (horarioNegocioDto != null) {
 					negocioCercanosYAbiertos.add(negocioDto);
 				}
+				
+				horariosNegocio = horariosNegocioRepository.findHorarioNegocioByEstatus(negocioDto.getIdNegocio(), Boolean.TRUE);
 
 			}
 			return negocioCercanosYAbiertos;
 
 		}
-
+		/*
+		 * Numero de ofertas publicadas, las ultima semana
+		 */
+		
+		
+		/*
+		 * Ultimo comentario del negocio
+		 */
+		
+		
+		/*
+		 * Horario del Negocio respecto al dia que se esta consultando
+		 */
+		
 		return negocioCercanos;
+	}
+	
+	@Override
+	public List<NegocioDto> obtenerNegociosByNearby2(String idAccion, double latitudActual, double longitudActual, double radio,
+			String estatusNegocio) {
+
+		List<NegocioDto> negocioCercanos = negocioRepository.findAllNegociosByNearbyAndEstatus(latitudActual,
+				longitudActual, idAccion,radio, Boolean.TRUE);
+
+	 List<HorarioNegocioDto> horariosNegocio = new ArrayList<>();
+	 List<HorarioNegocioDto> horariosNegocioPorDia = new ArrayList<>();
+	 List<NegocioDto> negociosComposite = new ArrayList<>();
+	 List<OfertaDto> ofertasByNegocio = new ArrayList<>();
+
+		if (negocioCercanos.isEmpty()) {
+			throw new NegocioException("No se encontro ningun negocio registrado", "0");
+		}
+		log.info("Negocios Cercanos: " + negocioCercanos.size());
+
+		for (NegocioDto negocioDto : negocioCercanos) {
+
+			/*
+			 * Horario del Negocio respecto al dia que se esta consultando
+			 */
+			horariosNegocio = horariosNegocioRepository.findHorarioNegocioByEstatus(negocioDto.getIdNegocio(),
+					Boolean.TRUE);
+			
+			for(HorarioNegocioDto horarioNegocioDto : horariosNegocio) {
+				if(horarioNegocioDto.getIdDia() == diaSemana()) {
+					horariosNegocioPorDia.add(horarioNegocioDto);
+					break;
+				}
+			}			
+			negocioDto.setHorarioNegocio(horariosNegocioPorDia);
+
+			try {
+				ofertasByNegocio = ofertasNegociosApiClient.obtenerOfertasByNegocio(negocioDto.getIdNegocio());
+			} catch (Exception e) {
+				continue;
+			}
+			
+			negocioDto.setNumeroOfertas(ofertasByNegocio.size());
+			negociosComposite.add(negocioDto);
+		}	
+		/*
+		 * Ultimo comentario del negocio
+		 */
+		
+		return negociosComposite;
 	}
 
 	public static Integer diaSemana() {

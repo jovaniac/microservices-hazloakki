@@ -15,13 +15,23 @@ public class HorariosNegocioRepositoryImpl extends SpringJdbcDao implements Hora
 	private String qryGuardarHorario = "INSERT INTO negocio_horario (id_negocio,id_dia,horario_inicial,horario_final,estatus) "
 			+ "VALUES(?,?,?,?,?)";
 
-	private String qrySelectByNegocioAndEstatus = "SELECT * FROM negocio_horario WHERE ID_NEGOCIO = ? AND ESTATUS = ?";
+	private String qrySelectByNegocioAndEstatus = "select * from cat_dias b, negocio_horario c\n" + 
+			"where c.id_dia = b.id_dia\n" + 
+			"and c.id_negocio = ?\n" + 
+			"and c.estatus = ?"
+			+ " order by b.id_dia asc";
+	
 	private String qryDeleteNegocios = "DELETE FROM negocio_horario WHERE ID_NEGOCIO = ?";
 
 	private String qrySelectNegociosAbiertos = "select * from negocio_horario a " + 
 			"where a.id_negocio = ? and a.id_dia = ? " + 
 			"and (TO_TIMESTAMP(?, 'HH24:MI:SS')::TIME >= a.horario_inicial OR " + 
 			"TO_TIMESTAMP(?, 'HH24:MI:SS')::TIME <= a.horario_final) ";
+	
+	private String qrySelectHorarioDiaActual="select * from negocio a, cat_dias b, negocio_horario c\n" + 
+			"where a.id_negocio = c.id_negocio\n" + 
+			"and c.id_dia = b.id_dia\n" + 
+			"and b.id_dia = ?";
 
 	@Override
 	public List<HorarioNegocioDto> findHorarioNegocioByEstatus(String idNegocio, boolean estatus) {
