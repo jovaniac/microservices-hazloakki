@@ -317,8 +317,11 @@ public class NegocioServiceImpl implements NegocioService {
 					horariosNegocioPorDia.add(horarioNegocioDto);
 					break;
 				}
-			}			
-			negocioDto.setHorarioNegocio(horariosNegocioPorDia);
+			}
+			/*
+			 * horario del dia
+			 */
+			negocioDto.setHorarioDia(formatoHorarioNegocio(horariosNegocioPorDia.get(0)));
 
 			try {
 				ofertasByNegocio = ofertasNegociosApiClient.obtenerOfertasByNegocio(negocioDto.getIdNegocio());
@@ -351,6 +354,11 @@ public class NegocioServiceImpl implements NegocioService {
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
 
 		return sdf.format(cal.getTime());
+	}
+	
+	public String formatoHorarioNegocio(HorarioNegocioDto horarioNegocioDto) {
+		
+		return horarioNegocioDto.getHorarioInicial() + " a " + horarioNegocioDto.getHorarioFinal();
 	}
 
 }

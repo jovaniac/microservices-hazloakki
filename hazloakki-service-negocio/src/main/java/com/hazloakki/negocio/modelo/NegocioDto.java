@@ -32,6 +32,7 @@ public class NegocioDto {
 	private Integer idAccion;
 	private String sitioWeb;
 	private List<HorarioNegocioDto> horarioNegocio = new ArrayList<>();
+	private String horarioDia;
 	private String distancia;
 	private String calificacion;
 	private Integer numeroOfertas;
@@ -261,5 +262,14 @@ public class NegocioDto {
 	public void setNombreCategoria(String nombreCategoria) {
 		this.nombreCategoria = nombreCategoria;
 	}
+
+	public String getHorarioDia() {
+		return horarioDia;
+	}
+
+	public void setHorarioDia(String horarioDia) {
+		this.horarioDia = horarioDia;
+	}
+	
 
 }
