@@ -318,15 +318,21 @@ public class NegocioServiceImpl implements NegocioService {
 					break;
 				}
 			}
-			/*
-			 * horario del dia
-			 */
-			negocioDto.setHorarioDia(formatoHorarioNegocio(horariosNegocioPorDia.get(0)));
-
+			
+			if(horariosNegocioPorDia.size() > 0 ) {
+				/*
+				 * horario del dia
+				 */
+				negocioDto.setHorarioDia(formatoHorarioNegocio(horariosNegocioPorDia.get(0)));
+	
+			}else {
+				negocioDto.setHorarioDia("Horario No Disponible");
+			}
+			
 			try {
 				ofertasByNegocio = ofertasNegociosApiClient.obtenerOfertasByNegocio(negocioDto.getIdNegocio());
 			} catch (Exception e) {
-				continue;
+				//continue;
 			}
 			
 			negocioDto.setNumeroOfertas(ofertasByNegocio.size());
