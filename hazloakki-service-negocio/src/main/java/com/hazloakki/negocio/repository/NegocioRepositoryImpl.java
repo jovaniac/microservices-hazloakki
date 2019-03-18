@@ -16,7 +16,7 @@ public class NegocioRepositoryImpl extends SpringJdbcDao implements NegocioRepos
 			+ " domicilio,latitud,longitud,estatus,codigo_postal,delegacion,colonia,calle,"
 			+ " numero_exterior,horario,responsable,id_cuenta,id_accion,sitio_web) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-	private String qrySelectNegocio = "select * from negocio where id_negocio = ?";
+	private String qrySelectNegocio = "select a.*,b.descripcion as nombre_categoria from negocio a, cat_categoria_negocios b where a.id_negocio = ? AND a.id_categoria=b.id_categoria" ;
 
 	private String qrySelecNegociosByCuentaAndEstatus = "SELECT * FROM negocio WHERE id_cuenta = ? and estatus = ?";
 

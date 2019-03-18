@@ -38,6 +38,8 @@ public class NegocioDto {
 	private Integer numeroOfertas;
 	private String ultimoComentario;
 	private String nombreCategoria;
+	private String telefonoCel1;
+	private String telefonoCel2;
 
 	public String getIdNegocio() {
 		return idNegocio;
@@ -269,6 +271,22 @@ public class NegocioDto {
 
 	public void setHorarioDia(String horarioDia) {
 		this.horarioDia = horarioDia;
+	}
+
+	public String getTelefonoCel1() {
+		return telefonoCel1;
+	}
+
+	public void setTelefonoCel1(String telefonoCel1) {
+		this.telefonoCel1 = telefonoCel1;
+	}
+
+	public String getTelefonoCel2() {
+		return telefonoCel2;
+	}
+
+	public void setTelefonoCel2(String telefonoCel2) {
+		this.telefonoCel2 = telefonoCel2;
 	}
 	
 

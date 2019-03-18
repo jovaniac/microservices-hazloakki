@@ -105,6 +105,23 @@ public class NegocioServiceImpl implements NegocioService {
 		List<MetodoPagoDto> dataMetodosPagoNegocio = negocioMetodoPagoRepository.consultar(idNegocio);
 		List<TipoTarjetaDto> dataTipoTarjetaNEgocio = negocioTarjetasPagoRepository.findByIdNegocio(idNegocio);
 		List<HorarioNegocioDto> listHorarios = horariosNegocioRepository.findHorarioNegocioByEstatus(idNegocio, Boolean.TRUE);
+		 List<HorarioNegocioDto> horariosNegocioPorDia = new ArrayList<>();
+
+		for(HorarioNegocioDto horarioNegocioDto : listHorarios) {
+			if(horarioNegocioDto.getIdDia() == diaSemana()) {
+				horariosNegocioPorDia.add(horarioNegocioDto);
+				break;
+			}
+		}
+		
+		if(horariosNegocioPorDia.size() > 0 ) {
+			/*
+			 * horario del dia
+			 */
+			negocioDto.setHorarioDia(formatoHorarioNegocio(horariosNegocioPorDia.get(0)));
+		}else {
+			negocioDto.setHorarioDia("Horario No Disponible");
+		}
 
 		negocioDto.setServiciosList(dataServiciosNegocio);
 		negocioDto.setMetodoPagoList(dataMetodosPagoNegocio);
